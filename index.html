@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="MITS - Leading institute for academic events, expert sessions, and coaching for NTA NET. Explore our courses, mock tests, and programs.">
+  <title>MITS</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --secondary: #1e293b;
+      --accent: #f59e0b;
+      --bg-light: #f8fafc;
+      --text-main: #334155;
+      --text-heading: #0f172a;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      --hover-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    /* ================= COMPONENT: BUTTONS ================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+      color: white;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ================= COMPONENT: BADGES ================= */
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-blue {
+      background: #e0f2fe;
+      color: #0284c7;
+    }
+
+    .badge-orange {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+
+    .badge-green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .badge-purple {
+      background: #f3e8ff;
+      color: #7e22ce;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: auto;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand span {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--secondary);
+      letter-spacing: -0.5px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: var(--primary);
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--secondary);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      margin-top: 80px;
+      background: linear-gradient(135deg, var(--secondary) 0%, #0f172a 100%);
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.2), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.1), transparent 40%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero .logo {
+      width: 140px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 24px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--text-heading);
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    /* ================= COMMON SECTIONS ================= */
+    section {
+      padding: 100px 20px;
+    }
+
+    section:nth-child(even) {
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header p {
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    /* ================= CARDS ================= */
+    .card {
+      background: var(--surface);
+      padding: 40px 30px;
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--hover-shadow);
+      border-color: transparent;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      background: #f0f9ff;
+      color: var(--primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover .card-icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #64748b;
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    /* ================= AWARDS ================= */
+    .award-box {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+      background: linear-gradient(to right, #ffffff, #fffbeb);
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #fde68a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .award-images {
+      position: relative;
+    }
+
+    .award-images img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .award-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .award-text p {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 25px;
+    }
+
+    .award-highlight {
+      background: #fef3c7;
+      padding: 20px;
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1.1rem;
+      color: #92400e;
+    }
+
+    /* ================= SLIDER ================= */
+    .slider-container {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      background: var(--surface);
+      padding: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 10px;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 450px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: var(--surface);
+    }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--secondary);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .slider-arrow:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .slider-arrow.left {
+      left: 20px;
+    }
+
+    .slider-arrow.right {
+      right: 20px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #cbd5e1;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+      width: 24px;
+      border-radius: 6px;
+    }
+
+    /* ================= VIDEO GRID ================= */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ================= SOCIAL SECTION ================= */
+    .social-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .social-card {
+      width: 200px;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s;
+      border: 1px solid var(--border);
+    }
+
+    .social-card i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .social-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .social-card:hover i {
+      transform: scale(1.1);
+    }
+
+    .social-card span {
+      display: block;
+      font-weight: 600;
+      color: var(--secondary);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .sc-linkedin:hover {
+      border-color: #0A66C2;
+      box-shadow: 0 10px 30px rgba(10, 102, 194, 0.15);
+    }
+
+    .sc-linkedin i {
+      color: #0A66C2;
+    }
+
+    .sc-instagram:hover {
+      border-color: #e1306c;
+      box-shadow: 0 10px 30px rgba(225, 48, 108, 0.15);
+    }
+
+    .sc-instagram i {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sc-youtube:hover {
+      border-color: #FF0000;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+    }
+
+    .sc-youtube i {
+      color: #FF0000;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 60px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+      font-size: 1.1rem;
+    }
+
+    .footer-contact div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-contact i {
+      color: var(--primary);
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .award-box {
+        grid-template-columns: 1fr;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.3s ease-in-out;
+      }
+
+      .menu.show {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .hero {
+        padding: 80px 20px;
+      }
+
+      .footer-contact {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="mits-logo.jpg" alt="MITS Logo">
+        <span style="font-size: 1.1rem; letter-spacing: 0;">Madras Institute of Tourism Studies</span>
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu" id="menu">
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#courses" onclick="toggleMenu()">Courses</a>
+        <a href="#tests" onclick="toggleMenu()">Mock Tests</a>
+        <a href="#events" onclick="toggleMenu()">Events</a>
+        <a href="#students" onclick="toggleMenu()">Students</a>
+        <a href="#contact" class="btn btn-primary" style="color:white; padding:8px 20px;" onclick="toggleMenu()">Contact
+          Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <img src="mits-logo.jpg" alt="Logo" class="logo">
+      <h1>MITS</h1>
+      <p>Empowering minds with Academic Events, Expert Sessions, and top-tier preparation for NTA NET & competitive
+        exams.</p>
+      <div class="hero-buttons">
+        <a href="#courses" class="btn btn-primary">Explore Courses <i class="fas fa-arrow-right"></i></a>
+        <a href="#about" class="btn btn-outline" style="border-color: rgba(255,255,255,0.4); color: white;">Learn
+          More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About MITS - Tourism Education Hub</h2>
+        <p>MITS acts as an interface between the tourism industry and academics. It provides awareness about the need
+          for tourism education, skill development, and sensitization of employment and entrepreneurial opportunities.
+        </p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>MITS has been established with a vision to provide high-quality education in the field of tourism and
+            hospitality, training young professionals to be the face of the future tourism industry.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Highly Skilled Trainers</h3>
+          <p>We provide trainers from all over India, making MITS a one-stop destination for tourism and
+            hospitality-related education.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+          <h3>Bridging the Gap</h3>
+          <p>We provide proper training to our students so they can be placed in reputed organizations and grow as
+            professionals.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Research & Consultancy</h3>
+          <p>We create awareness regarding the tourism sector and offer research and consultancy for institutes and
+            industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS SECTION -->
+  <section id="award" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Awards & Recognition</h2>
+      </div>
+      <div class="award-box">
+        <div class="award-images">
+          <img src="award-3.png" alt="Award Ceremony">
+        </div>
+        <div class="award-text">
+          <span class="badge badge-orange"><i class="fas fa-trophy"></i> Excellence</span>
+          <h3>Best Entrepreneur Award</h3>
+          <p>Recognized for outstanding contribution to education and empowering the youth through innovative learning
+            methodologies.</p>
+          <div class="award-highlight">
+            <i class="fas fa-medal" style="color:var(--accent); margin-right:10px;"></i>
+            Awarded by the then Forest Minister <strong>Thiru. Ramachandran</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES SECTION -->
+  <section id="courses">
+    <div class="container">
+      <div class="section-header">
+        <h2>Trainings & Courses</h2>
+        <p>Comprehensive education and training for tourism, hospitality, and specific subjects.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge badge-blue">UGC NET / JRF (Paper 1)</span>
+          <h3>General Paper</h3>
+          <p>Comprehensive coaching covering all topics for the general paper.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">UGC NET / JRF (Paper 2)</span>
+          <h3>Tourism Administration</h3>
+          <p>Master the core concepts of tourism management and administration.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+        <div class="card">
+          <span class="badge badge-green">UGC NET / JRF (Paper 2)</span>
+          <h3>Home Science</h3>
+          <p>In-depth coaching strictly aligned with the latest syllabus.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+        <div class="card">
+          <span class="badge badge-orange">UGC NET / JRF (Paper 2)</span>
+          <h3>Law</h3>
+          <p>Expert guidance to secure top ranks in your specialized subject.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">Foreign Languages</span>
+          <h3>French & Spanish</h3>
+          <p>Master French and Spanish with our specialized certificate courses.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+        <div class="card">
+          <span class="badge badge-blue">Competitive / Entrance</span>
+          <h3>TO / ATO / DTC / TRB</h3>
+          <p>Tourism-related exams (TO/ATO/DTC) and specific subjects like TRB Tamil.</p>
+          <a href="https://wa.me/919342720217" class="btn btn-outline" target="_blank">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCK TESTS & PAPERS -->
+  <section id="tests" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Preparation Resources</h2>
+        <p>Enhance your readiness with our mock tests and previous year papers.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon" style="background:#fff7ed; color:#ea580c;"><i class="fas fa-file-alt"></i></div>
+          <h3>Mock Tests Series</h3>
+          <p>Simulate the real exam experience with our comprehensively designed mock tests for General Paper, Tourism,
+            Law, and Home Science.</p>
+          <a href="https://wa.me/918072363371" class="btn btn-primary" target="_blank">Get Access</a>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#f0fdf4; color:#16a34a;"><i class="fas fa-history"></i></div>
+          <h3>Previous Year Papers</h3>
+          <p>Analyze trends and practice with genuine past papers curated with detailed answer keys and explanations.
+          </p>
+          <a href="https://wa.me/918072363371" class="btn btn-primary" target="_blank">Get Access</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS SECTION -->
+  <section id="events">
+    <div class="container">
+      <div class="section-header">
+        <h2>Events & Highlights</h2>
+        <p>Glimpses of major events and initiatives hosted by MITS.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon" style="background:#f3e8ff; color:#7e22ce;"><i class="fas fa-calendar-check"></i></div>
+          <span class="badge badge-purple">Milestone</span>
+          <h3>MITS Inauguration</h3>
+          <p>Inaugurated with organizing a national-level webinar series 'PENTAGON' graced by 11 eminent resource
+            persons.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#e0f2fe; color:#0284c7;"><i class="fas fa-users"></i></div>
+          <span class="badge badge-blue">Awareness</span>
+          <h3>School & College Programmes</h3>
+          <p>Exclusive programs for students to explore career & growth opportunities in Tourism and Hospitality.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#dcfce7; color:#15803d;"><i class="fas fa-globe"></i></div>
+          <span class="badge badge-green">Celebration</span>
+          <h3>World Tourism Day</h3>
+          <p>Celebrated World Tourism Day with expert webinars addressing the changeover of the industry post-pandemic.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:#ffedd5; color:#c2410c;"><i class="fas fa-plane"></i></div>
+          <span class="badge badge-orange">Networking</span>
+          <h3>Tour Operators Meet</h3>
+          <p>Hosted greeting and networking events bridging students directly with prominent Tour operators and industry
+            leaders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TEAM -->
+  <section id="team" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Team</h2>
+        <p>Meet the visionary leaders and masterminds driving MITS.</p>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="card" style="padding: 30px 20px;">
+          <img src="founder.png" alt="Founder"
+            style="width:140px;height:140px;border-radius:50%;margin-bottom:20px;border:4px solid #f8fafc;box-shadow:0 10px 20px rgba(0,0,0,0.1);object-fit:cover;">
+          <h3 style="margin-bottom:5px;">Mr. Sarath Chandrar</h3>
+          <p style="color:var(--primary);font-weight:600;margin-bottom:0;">Founder cum Managing Director</p>
+        </div>
+        <div class="card" style="padding: 30px 20px;">
+          <img src="jenifer.png" alt="Administrative Director"
+            style="width:140px;height:140px;border-radius:50%;margin-bottom:20px;border:4px solid #f8fafc;box-shadow:0 10px 20px rgba(0,0,0,0.1);object-fit:cover;">
+          <h3 style="margin-bottom:5px;">Mr. L. Jenifar</h3>
+          <p style="color:var(--primary);font-weight:600;margin-bottom:0;">Administrative Director</p>
+        </div>
+        <div class="card" style="padding: 30px 20px;">
+          <img src="amalan.png" alt="Academic Director"
+            style="width:140px;height:140px;border-radius:50%;margin-bottom:20px;border:4px solid #f8fafc;box-shadow:0 10px 20px rgba(0,0,0,0.1);object-fit:cover;">
+          <h3 style="margin-bottom:5px;">Mr. Amalan E</h3>
+          <p style="color:var(--primary);font-weight:600;margin-bottom:0;">Academic Director</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS & ACHIEVERS (COMBINED SLIDER SHOWCASE) -->
+  <section id="showcase">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Gallery & Achievers</h2>
+        <p>Glimpses of our events, programs, and the proud achievers of MITS.</p>
+      </div>
+      <div class="slider-container">
+        <div class="slides" id="mainSlider">
+          <div class="slide"><img src="program-1.png" alt="Program"></div>
+          <div class="slide"><img src="program-2.png" alt="Program"></div>
+          <div class="slide"><img src="program-3.png" alt="Program"></div>
+          <div class="slide"><img src="achiever-1.png" alt="Achiever"></div>
+          <div class="slide"><img src="achiever-2.png" alt="Achiever"></div>
+        </div>
+        <button class="slider-arrow left" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow right" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <!-- STUDENTS VIDEO SECTION -->
+  <section id="students" style="background:var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Student Testimonials</h2>
+        <p>Hear directly from our successful candidates.</p>
+      </div>
+      <div class="video-grid">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/y4w2LN87dTA" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/QBtRtaSbaMg" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL / CONTACT SECTION -->
+  <section id="contact" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Connect With Us</h2>
+        <p>Stay updated with our latest news, events, and resources.</p>
+      </div>
+      <div class="social-cards">
+        <a href="https://www.linkedin.com/in/mits-madras-institute-of-tourism-studies-090b332b1"
+          class="social-card sc-linkedin" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://www.instagram.com/indiamits/" class="social-card sc-instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.youtube.com/@mitslearntourism8408" class="social-card sc-youtube" target="_blank">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <img src="mits-logo.jpg" alt="MITS Logo" class="footer-logo">
+      <h3>MITS</h3>
+
+      <div class="footer-contact">
+        <div><i class="fas fa-map-marker-alt"></i> Coimbatore, India</div>
+        <div><i class="fas fa-phone-alt"></i> +91 9342720217 / +91 9487082493</div>
+        <div><i class="fas fa-envelope"></i> info@mitsinda.in / mits.india@rediffmail.com</div>
+        <div><i class="fas fa-globe"></i> www.mitsindia.in</div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 MITS. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        nav.style.padding = '5px 0';
+      } else {
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+        nav.style.padding = '0';
+      }
+    });
+
+    // Unified Slider
+    let currentSlide = 0;
+    const slides = document.getElementById('mainSlider');
+    const dotsContainer = document.getElementById('sliderDots');
+    const totalSlides = slides.children.length;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `dot ${i === 0 ? 'active' : ''}`;
+      dot.onclick = () => { currentSlide = i; updateSlider(); };
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    // Auto slide
+    setInterval(nextSlide, 5000);
+  </script>
+</body>
+
+</html>
